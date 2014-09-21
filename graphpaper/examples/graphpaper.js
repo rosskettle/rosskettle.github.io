@@ -1,6 +1,6 @@
-var Grid = function(userProps) {
-  if (!(this instanceof Grid)){
-    return new Grid(userProps);
+var Graphpaper = function(userProps) {
+  if (!(this instanceof Graphpaper)){
+    return new Graphpaper(userProps);
   }
 
   this._props = {
@@ -33,7 +33,7 @@ var Grid = function(userProps) {
   this.draw();
 };
 
-Grid.prototype = {
+Graphpaper.prototype = {
 
   draw: function() {
     var gl = this._gl;
@@ -124,7 +124,6 @@ Grid.prototype = {
   _createElement: function() {
     var el = document.createElement('canvas');
     return el
-
   },
 
   _getContext: function() {
@@ -210,7 +209,6 @@ Grid.prototype = {
 
     gl.useProgram(shaderProgram);
     return shaderProgram;
-
   },
 
   _getUniforms: function(shaderProgram) {
@@ -250,6 +248,10 @@ Grid.prototype = {
     this._setLineColors();
     this._setOffset();
     this._setResolution();
-  },
+  }
 
 };
+
+if(typeof module !== 'undefined'){
+    module.exports = Graphpaper;
+}
